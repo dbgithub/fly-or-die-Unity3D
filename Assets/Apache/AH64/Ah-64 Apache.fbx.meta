@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: ea54112371a2d74429da1d152032baab
+timeCreated: 1483549519
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Ah-64
+    100002: //RootNode
+    100004: antennaes
+    100006: chassis
+    100008: chassis_dummy
+    100010: cockpit
+    100012: collision_mesh
+    100014: glass
+    100016: glass_001
+    100018: moving_rotor
+    100020: moving_rotor2
+    100022: panel
+    100024: pods
+    100026: rocket
+    100028: static_rotor
+    100030: static_rotor2
+    100032: stinger
+    400000: Ah-64
+    400002: //RootNode
+    400004: antennaes
+    400006: chassis
+    400008: chassis_dummy
+    400010: cockpit
+    400012: collision_mesh
+    400014: glass
+    400016: glass_001
+    400018: moving_rotor
+    400020: moving_rotor2
+    400022: panel
+    400024: pods
+    400026: rocket
+    400028: static_rotor
+    400030: static_rotor2
+    400032: stinger
+    2300000: antennaes
+    2300002: chassis
+    2300004: cockpit
+    2300006: collision_mesh
+    2300008: glass
+    2300010: glass_001
+    2300012: moving_rotor
+    2300014: moving_rotor2
+    2300016: panel
+    2300018: pods
+    2300020: rocket
+    2300022: static_rotor
+    2300024: static_rotor2
+    2300026: stinger
+    3300000: antennaes
+    3300002: chassis
+    3300004: cockpit
+    3300006: collision_mesh
+    3300008: glass
+    3300010: glass_001
+    3300012: moving_rotor
+    3300014: moving_rotor2
+    3300016: panel
+    3300018: pods
+    3300020: rocket
+    3300022: static_rotor
+    3300024: static_rotor2
+    3300026: stinger
+    4300000: collision_mesh
+    4300002: moving_rotor2
+    4300004: static_rotor2
+    4300006: moving_rotor
+    4300008: static_rotor
+    4300010: chassis
+    4300012: glass_001
+    4300014: pods
+    4300016: glass
+    4300018: stinger
+    4300020: antennaes
+    4300022: rocket
+    4300024: cockpit
+    4300026: panel
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
