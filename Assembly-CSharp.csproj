@@ -47,9 +47,27 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\FadeAway.cs" />
      <Compile Include="Assets\Scripts\HelicopterController.cs" />
      <Compile Include="Assets\Scripts\LightPulse.cs" />
+     <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
+     <Compile Include="Assets\Scripts\QuitOnClick.cs" />
+     <Compile Include="Assets\Scripts\SelectOnInput.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\ActiveStateToggler.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\ApplicationManager.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\ChangeColor.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\DragMe.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\DragPanel.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\DropMe.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\PanelManager.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\ResizePanel.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\ScrollDetailTexture.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\ShowSliderValue.cs" />
+     <Compile Include="Assets\UI Sample menu\Scripts\TiltWindow.cs" />
+     <None Include="Assets\UI Sample menu\Fonts\Jupiter\LICENSE.txt" />
+     <None Include="Assets\UI Sample menu\Textures and Sprites\SF UI\Background\LICENSE.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\UI Sample menu\Materials\UI-Default-No-Alpha.shader" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />

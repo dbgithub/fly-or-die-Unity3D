@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HelicopterController : MonoBehaviour {
 
 	public GameObject mainRotor;
 	public GameObject tailRotor;
 	private Rigidbody rb;
+	public Text uitxtSpeed;
+	public Text uitxtAltitude;
 
 	// Main rotor
 	public float maxRotorForce = 24000f;
@@ -24,9 +27,14 @@ public class HelicopterController : MonoBehaviour {
 	public float forwardRotorTorqueMultiplier = 0.5f;
 	public float sidewaysRotorTorqueMultiplier = 0.5f;
 
+	// UI labels related variables:
+	double powerBoost;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+		uitxtSpeed.text = "--";
+		uitxtAltitude.text = "--";
 	}
 
 	// Update is called once per frame
@@ -48,6 +56,7 @@ public class HelicopterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (mainRotorActive == true) {
 			mainRotor.transform.rotation = transform.rotation * Quaternion.Euler (270, rotorRotation, 0);
 		}
@@ -62,8 +71,16 @@ public class HelicopterController : MonoBehaviour {
 
 		if (Input.GetAxis ("Vertical2") != 0.0f) {
 			rotorVelocity += Input.GetAxis ("Vertical2") * 0.005f;
+			powerBoost = System.Math.Round (rotorVelocity * 100, 2);
+			if (powerBoost >= 100) {uitxtSpeed.text = "100%";} else if (powerBoost <= 0) {uitxtSpeed.text = "0%";} else {
+				uitxtSpeed.text = powerBoost.ToString() + "%";
+			}
 		} else {
 			rotorVelocity = Mathf.Lerp (rotorVelocity, hoverRotorVelocity, Time.deltaTime * 5);
+			powerBoost = System.Math.Round (rotorVelocity * 100, 2);
+			if (powerBoost >= 100) {uitxtSpeed.text = "100%";} else if (powerBoost <= 0) {uitxtSpeed.text = "0%";} else {
+				uitxtSpeed.text = powerBoost.ToString() + "%";
+			}
 		}
 		tailRotorVelocity = hoverTailRotorVelocity - Input.GetAxis ("Horizontal") * 0.4f;
 
@@ -72,5 +89,17 @@ public class HelicopterController : MonoBehaviour {
 		} else if (rotorVelocity < 0.0) {
 			rotorVelocity = 0.0f;
 		}
+
+		//uitxtAltitude.text = estimateAltitude().ToString() + " m";
 	}
+	/*
+	float estimateAltitude() {
+		
+		RaycastHit hit;
+		Vector3 heliPos = GameObject.Find ("Apache Ah-04 Sand").transform.position;
+		Physics.Raycast (heliPos, new Vector3(0, -1, 0), out hit, 3000f, 8);
+		return (Vector3.Distance (heliPos, hit.collider.transform.position));
+
+	}*/
+
 }
