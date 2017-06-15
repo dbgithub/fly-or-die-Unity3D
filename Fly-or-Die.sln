@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fly-or-Die", "Assembly-CSha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fly-or-Die", "Assembly-CSharp-Editor-firstpass.csproj", "{AA0847B0-C2BA-B1B2-3BC9-E8D867189DF8}"
 EndProject
+Project("{A09151C2-6B0F-D815-D510-E632C3B36C92}") = "Fly-or-Die", "Assembly-UnityScript.unityproj", "{18C9D966-61FB-81C0-2C07-6D6DECFE9B05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{AA0847B0-C2BA-B1B2-3BC9-E8D867189DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA0847B0-C2BA-B1B2-3BC9-E8D867189DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA0847B0-C2BA-B1B2-3BC9-E8D867189DF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18C9D966-61FB-81C0-2C07-6D6DECFE9B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18C9D966-61FB-81C0-2C07-6D6DECFE9B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18C9D966-61FB-81C0-2C07-6D6DECFE9B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18C9D966-61FB-81C0-2C07-6D6DECFE9B05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

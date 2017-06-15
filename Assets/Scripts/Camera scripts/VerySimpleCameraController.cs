@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		offset = targetObject.transform.TransformPoint (0,4,5);
+		offset = targetObject.transform.TransformPoint (0,3,-8);
 		transform.position = Vector3.Lerp (transform.position, offset, 7 * Time.deltaTime);
 		transform.LookAt (targetObject.transform.position);
 	}
