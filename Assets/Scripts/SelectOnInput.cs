@@ -13,6 +13,7 @@ public class SelectOnInput : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		audsource = GetComponent<AudioSource> ();
+		audsource.ignoreListenerPause = true;
 	}
 	
 	// Update is called once per frame

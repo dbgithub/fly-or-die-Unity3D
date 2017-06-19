@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 		mo = GameObject.Find("MainCamera").GetComponent<MouseOrbit> ();
 		offset = particleSys.transform.position - mainCamera.transform.position;
 		audiosrc = inGameMenu.GetComponent<AudioSource> ();
+		audiosrc.ignoreListenerPause = true;
 	}
 	
 	// Update is called once per frame
