@@ -21,14 +21,16 @@ public class FadeAway : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Time.time > 5 && triggered == false) {
+		if (Time.timeSinceLevelLoad > 5 && triggered == false) {
 			img.CrossFadeAlpha (0.0f, fadingDuration, false);
 			txt.CrossFadeAlpha (0.0f, fadingDuration, false);
 			triggered = true;
 		}
-		if (Time.time > 5 + fadingDuration) {
-			Destroy (imageToFade);
-			Destroy (textToFade);
+		if (Time.timeSinceLevelLoad > 5 + fadingDuration) {
+			imageToFade.SetActive (false);
+			textToFade.SetActive (false);
+			//Destroy (imageToFade);
+			//Destroy (textToFade);
 		}
 	}
 }

@@ -46,16 +46,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BlinkingText.cs" />
      <Compile Include="Assets\Scripts\Camera scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Camera scripts\MouseOrbit.cs" />
-     <Compile Include="Assets\Scripts\Camera scripts\SmoothFollow2.cs" />
+     <Compile Include="Assets\Scripts\Camera scripts\SmoothFollowImproved.cs" />
      <Compile Include="Assets\Scripts\Camera scripts\VerySimpleCameraController.cs" />
+     <Compile Include="Assets\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\Scripts\FadeAway.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HelicopterController.cs" />
      <Compile Include="Assets\Scripts\LightPulse.cs" />
-     <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
+     <Compile Include="Assets\Scripts\LoadResumeSceneManager.cs" />
+     <Compile Include="Assets\Scripts\MoveSand.cs" />
      <Compile Include="Assets\Scripts\QuitOnClick.cs" />
      <Compile Include="Assets\Scripts\SelectOnInput.cs" />
+     <Compile Include="Assets\Scripts\SphereCollision.cs" />
+     <Compile Include="Assets\Scripts\StopBackgroundMusic.cs" />
+     <Compile Include="Assets\Scripts\TimeScaleIndependentParticleSystem.cs" />
      <Compile Include="Assets\Scripts\WeaponController.cs" />
      <Compile Include="Assets\UI Sample menu\Scripts\ActiveStateToggler.cs" />
      <Compile Include="Assets\UI Sample menu\Scripts\ApplicationManager.cs" />

@@ -16,7 +16,8 @@ public class HelicopterController : MonoBehaviour {
 	public Text uitxtAltitude;
 	private bool freeLook;
 
-	SmoothFollow2 sf2;
+	// Scripts references for camera type (SmoothFollow vs MouseOrbit):
+	SmoothFollowImproved sf2;
 	MouseOrbit mo;
 
 	// Main rotor
@@ -35,7 +36,7 @@ public class HelicopterController : MonoBehaviour {
 	public float forwardRotorTorqueMultiplier = 0.5f;
 	public float sidewaysRotorTorqueMultiplier = 0.5f;
 
-	// UI labels related variables:
+	// HUD related variables:
 	double powerBoost;
 
 	// Use this for initialization
@@ -44,8 +45,8 @@ public class HelicopterController : MonoBehaviour {
 		uitxtSpeed.text = "--";
 		uitxtAltitude.text = "--";
 		freeLook = false;
-		sf2 = GameObject.Find("MainCamera2").GetComponent<SmoothFollow2> ();
-		mo = GameObject.Find("MainCamera2").GetComponent<MouseOrbit> ();
+		sf2 = GameObject.Find("MainCamera").GetComponent<SmoothFollowImproved> ();
+		mo = GameObject.Find("MainCamera").GetComponent<MouseOrbit> ();
 	}
 
 	// Called every physics step. FixedUpdate intervals are consistent.
@@ -105,12 +106,14 @@ public class HelicopterController : MonoBehaviour {
 		// Otherwise, slowly interpolate it back to the hover velocity to maintain the helicopter steady; to hover in place.
 		if (Input.GetAxis ("Vertical2") != 0.0f) {
 			rotorVelocity += Input.GetAxis ("Vertical2") * 0.001f;
+			// Updating HUD text for power boost:
 			powerBoost = System.Math.Round (rotorVelocity * 100, 2);
 			if (powerBoost >= 100) {uitxtSpeed.text = "100%";} else if (powerBoost <= 0) {uitxtSpeed.text = "0%";} else {
 				uitxtSpeed.text = powerBoost.ToString() + "%";
 			}
 		} else {
 			rotorVelocity = Mathf.Lerp (rotorVelocity, hoverRotorVelocity, Time.deltaTime * Time.deltaTime * 5);
+			// Updating HUD text for power boost:
 			powerBoost = System.Math.Round (rotorVelocity * 100, 2);
 			if (powerBoost >= 100) {uitxtSpeed.text = "100%";} else if (powerBoost <= 0) {uitxtSpeed.text = "0%";} else {
 				uitxtSpeed.text = powerBoost.ToString() + "%";
@@ -124,25 +127,24 @@ public class HelicopterController : MonoBehaviour {
 			rotorVelocity = 0.0f;
 		}
 
+		// Updating HUD text for altitude:
 		uitxtAltitude.text = estimateAltitude().ToString() + " m";
 
 		///////////////
-		if (Input.GetKey(KeyCode.F)) {
+		///////////////
+		// Chopper KEYBOARD controls:
+		if (Input.GetKeyDown(KeyCode.F)) {
 			freeLook = !freeLook;
-			//SmoothFollow2 sf2 = GetComponent<SmoothFollow2> ();
-			//MouseOrbit mo = GetComponent<MouseOrbit> ();
 			sf2.enabled = !sf2.enabled;
 			mo.enabled = !mo.enabled;
 		}
 	}
 
 	float estimateAltitude() {
-		
 		RaycastHit hit;
 		Vector3 heliPos = GameObject.FindWithTag("Helicopter").transform.position; // To find out more about tags, see: https://docs.unity3d.com/ScriptReference/GameObject.FindWithTag.html
 		Physics.Raycast (heliPos- Vector3.up, -Vector3.up, out hit);
 		return Mathf.Round(hit.distance);
-
 	}
 
 }
