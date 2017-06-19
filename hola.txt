@@ -1,2 +1,0 @@
-fichero que he creado para provocar un commit en el repositorio porque quiero añadir dos commits que no fueron subidos al repositorio por culpa de esos archivos grandes PSD de mierda!
-

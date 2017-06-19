@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\BlinkingText.cs" />
      <Compile Include="Assets\Scripts\Camera scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Camera scripts\MouseOrbit.cs" />
+     <Compile Include="Assets\Scripts\Camera scripts\SmoothFollow2.cs" />
      <Compile Include="Assets\Scripts\Camera scripts\SmoothFollowImproved.cs" />
      <Compile Include="Assets\Scripts\Camera scripts\VerySimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\DontDestroy.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\Scripts\HelicopterController.cs" />
      <Compile Include="Assets\Scripts\LightPulse.cs" />
      <Compile Include="Assets\Scripts\LoadResumeSceneManager.cs" />
+     <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
      <Compile Include="Assets\Scripts\MoveSand.cs" />
      <Compile Include="Assets\Scripts\QuitOnClick.cs" />
      <Compile Include="Assets\Scripts\SelectOnInput.cs" />
