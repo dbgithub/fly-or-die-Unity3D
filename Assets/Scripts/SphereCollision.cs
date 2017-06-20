@@ -33,7 +33,6 @@ public class SphereCollision : MonoBehaviour {
 			timeAvg = 0.0f;
 			counterText.text = 0.0f.ToString("F1"); // Rounds the value and formats the value as a float value with one decimal: X.X
 			StartCoroutine (FadeAwayText());
-			print ("HOLA!");
 		}
 	}
 	
@@ -44,7 +43,7 @@ public class SphereCollision : MonoBehaviour {
 			counterText.CrossFadeAlpha (1.0f, 0.0f, false);
 			counterText.enabled = true;
 		}
-		Debug.Log("ENTERED!!! (" + other.name + ")");
+		//Debug.Log("ENTERED!!! (" + other.name + ")");
 	}
 	void OnTriggerStay(Collider other) {
 		if (Time.time >= (collisionTime + timeBeforeDestruction) && !destroyed) {
@@ -56,6 +55,7 @@ public class SphereCollision : MonoBehaviour {
 			gameObject.transform.GetChild (0).transform.GetChild (1).GetComponent<EllipsoidParticleEmitter> ().emit = false;
 			Debug.Log("DINGG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			counterText.text = Math.Round (timeAvg, 1).ToString("F1"); // Rounds the value and formats the value as a float value with one decimal: X.X
+			GameObject.Find("EventSystem").GetComponent<GameManager>().UpdateProficiencyLevel();
 			StartCoroutine (FadeAwayText());
 			StartCoroutine (DestroySphere());
 		}
@@ -66,7 +66,7 @@ public class SphereCollision : MonoBehaviour {
 	void OnTriggerExit(Collider other) {
 		collision = collision & false; // '&' performs logical AND operation !!
 		collisionOutTime = Time.time;
-		Debug.Log("EXITED!!! (" + other.name + ")");
+		//Debug.Log("EXITED!!! (" + other.name + ")");
 	}
 
 	private IEnumerator FadeAwayText(){
