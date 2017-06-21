@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
      <Compile Include="Assets\Scripts\MoveSand.cs" />
      <Compile Include="Assets\Scripts\QuitOnClick.cs" />
+     <Compile Include="Assets\Scripts\RotorDestructionScript.cs" />
      <Compile Include="Assets\Scripts\SelectOnInput.cs" />
      <Compile Include="Assets\Scripts\SphereCollision.cs" />
      <Compile Include="Assets\Scripts\StopBackgroundMusic.cs" />

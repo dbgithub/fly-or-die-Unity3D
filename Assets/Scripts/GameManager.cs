@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviour {
 	private float proficiencyLevel; // This represents the points the player is adquaring (destroyed Spheres)
 	private int numSpheres; // number of spheres that will act as objectives to capture by the player
 	public static bool triggerResume = false;
-	public GameObject HUD;
+	public static bool youwin = false; // booleano para que en HelicopterController evite subir el volumen al sonido del rotor.
+	public GameObject HUD; // CANVAS
+	public GameObject MissionAccomplishedImage; // MissionAccomplished image
+	public GameObject MissionAccomplishedLabel; // MissionAccomplished label
 	private bool wasMouseOrbitActivated;
 	public GameObject inGameMenu;
 	public GameObject mainCamera;
@@ -21,6 +24,8 @@ public class GameManager : MonoBehaviour {
 	MouseOrbit mo; // Scripts reference for MouseOrbit camera type
 	private Vector3 offset; // distance offset between the camera and the particle system for in-game menu
 	private AudioSource audiosrc;
+	private AudioSource youwinAudioSrc; // You Win sound!
+	private AudioSource militarychatter2;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +37,10 @@ public class GameManager : MonoBehaviour {
 		offset = particleSys.transform.position - mainCamera.transform.position;
 		audiosrc = inGameMenu.GetComponent<AudioSource> ();
 		audiosrc.ignoreListenerPause = true;
+		youwinAudioSrc = GameObject.Find ("CanvasMissionAccomplished").GetComponents<AudioSource> ()[0];
+		youwinAudioSrc.ignoreListenerPause = true;
+		militarychatter2 = GameObject.Find ("CanvasMissionAccomplished").GetComponents<AudioSource> ()[1];
+		militarychatter2.ignoreListenerPause = true;
 	}
 	
 	// Update is called once per frame
@@ -58,6 +67,14 @@ public class GameManager : MonoBehaviour {
 
 			AudioListener.pause = !AudioListener.pause; // You can access AudioListener in a static way, because it is supposed to only have one audio listener in you scenes.
 		}
+
+		// TODO: This is a little trick to WIN the game straightforward so that in the DEMO, it's not necessary to go through the whole process!
+		// In other words, we accelerate the winning process!!
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			for (int i = 0; i < numSpheres; i++) {
+				UpdateProficiencyLevel ();
+			}
+		}
 	}
 
 	/*
@@ -76,5 +93,21 @@ public class GameManager : MonoBehaviour {
 	// Updates the UI label for proficiency level in the HUD
 	public void UpdateProficiencyLevel() {
 		uitxtProficiency.GetComponent<Text>().text = ((++proficiencyLevel / numSpheres) * 100).ToString() + "%";
+		if ((proficiencyLevel / numSpheres) * 100 == 100) {
+			// MISSION ACCOMPLISHED!!
+			StartCoroutine(YouWin());
+		}
+	}
+
+	private IEnumerator YouWin() {
+		yield return new WaitForSeconds (1.5f);
+		youwinAudioSrc.PlayOneShot (youwinAudioSrc.clip);
+		militarychatter2.PlayOneShot (militarychatter2.clip);
+		MissionAccomplishedImage.GetComponent<Image>().enabled = true;
+		MissionAccomplishedLabel.GetComponent<Text> ().enabled = true;
+		Time.timeScale = 0.2F;
+		youwin = true;
+		GameObject.Find ("Apache Ah-04 Sand").GetComponents<AudioSource> () [0].volume = 0.2f;
+		GameObject.Find ("Apache Ah-04 Sand").GetComponents<AudioSource> () [1].volume = 0.2f;
 	}
 }

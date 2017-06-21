@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RotorDestructionScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameManager.cs" Line="77" Column="40" />
-      <File FileName="Assets\Scripts\SphereCollision.cs" Line="61" Column="4" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="109" Column="3" />
+      <File FileName="Assets\Scripts\HelicopterController.cs" Line="107" Column="135" />
+      <File FileName="Assets\Scripts\SphereCollision.cs" Line="23" Column="21" />
+      <File FileName="Assets\Scripts\RotorDestructionScript.cs" Line="34" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

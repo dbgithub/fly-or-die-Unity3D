@@ -20,6 +20,13 @@ public class HelicopterController : MonoBehaviour {
 	SmoothFollowImproved sf2;
 	MouseOrbit mo;
 
+	// Spotlight:
+	public GameObject heliSpotlight; // linterna o foco del helicoptero
+	public GameObject heliSpotlight2; // punto de luz del foco del helicoptero
+	private Light light1;
+	private Light light2;
+	private AudioSource spotlightSoundFX;
+
 	// Main rotor
 	public float maxRotorForce = 22241f;
 	public float maxRotorVelocity = 7200f;
@@ -47,6 +54,10 @@ public class HelicopterController : MonoBehaviour {
 		freeLook = false;
 		sf2 = GameObject.Find("MainCamera").GetComponent<SmoothFollowImproved> ();
 		mo = GameObject.Find("MainCamera").GetComponent<MouseOrbit> ();
+		spotlightSoundFX = heliSpotlight.GetComponent<AudioSource> ();
+		// Spotlight:
+		light1 = heliSpotlight.GetComponent<Light> ();
+		light2 = heliSpotlight2.GetComponent<Light> ();
 	}
 
 	// Called every physics step. FixedUpdate intervals are consistent.
@@ -76,7 +87,7 @@ public class HelicopterController : MonoBehaviour {
 
 		// We would like to activate/deactivate some objects when the blades are fast enough to barely see them, or viceversa.
 		// To find out the difference between Activating/Deactivating and Enabling/Disabling and Object or Component, take a look at: http://answers.unity3d.com/questions/785273/whats-the-difference-between-activatedeactivate-en.html
-		if (staticMainRotor !=null &&  movingMainRotor !=null && movingTailRotor !=null ){
+		if (staticMainRotor !=null &&  movingMainRotor !=null && movingTailRotor !=null && !GameManager.youwin){
 			if (rotorVelocity > 0.4){
 				GetComponents<AudioSource> () [0].volume = 1;
 				movingMainRotor.SetActive(true);
@@ -89,11 +100,11 @@ public class HelicopterController : MonoBehaviour {
 				movingTailRotor.SetActive(false);
 			}
 		}
-		
-		if (mainRotorActive == true) {
+
+		if (mainRotorActive == true && mainRotor != null) { // we check for null for whenever the helicopter is destroyed and blades removed
 			mainRotor.transform.rotation = transform.rotation * Quaternion.Euler (0, rotorRotation, 0);
 		}
-		if (tailRotorActive == true) {
+		if (tailRotorActive == true && tailRotor != null) { // we check for null for whenever the helicopter is destroyed and blades removed
 			tailRotor.transform.rotation = transform.rotation * Quaternion.Euler (tailRotorRotation, 0, 0);
 		}
 		rotorRotation += maxRotorVelocity * rotorVelocity * Time.deltaTime;
@@ -133,10 +144,22 @@ public class HelicopterController : MonoBehaviour {
 		///////////////
 		///////////////
 		// Chopper KEYBOARD controls:
+		//FREE LOOK
 		if (Input.GetKeyDown(KeyCode.F)) {
 			freeLook = !freeLook;
 			sf2.enabled = !sf2.enabled;
 			mo.enabled = !mo.enabled;
+		}
+
+		// FOCO (spotlight)
+		if (Input.GetKeyDown (KeyCode.L)) {
+			if (!light1.enabled) {
+				// if the light is going to be turned on, then, we play sound:
+				spotlightSoundFX.PlayOneShot (spotlightSoundFX.clip);
+			}
+			light1.enabled = !light1.enabled;
+			light2.enabled = !light2.enabled;
+
 		}
 	}
 

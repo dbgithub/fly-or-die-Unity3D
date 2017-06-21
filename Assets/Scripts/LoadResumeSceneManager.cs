@@ -18,6 +18,10 @@ public class LoadResumeSceneManager : MonoBehaviour {
 		GameManager.triggerResume = true;
 	}
 
+	public void RestartGame(int level) {
+		SceneManager.LoadScene (level);
+	}
+
 	private IEnumerator Countdown(int scene, float delay){
 		yield return new WaitForSeconds (delay);
 		SceneManager.LoadScene (scene);
