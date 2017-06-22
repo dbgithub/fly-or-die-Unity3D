@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject mainCamera;
 	public GameObject particleSys;
 	public GameObject uitxtProficiency; // UI text (label) used to display the proficiency level of the player
+	public Material skybox_afternoon;
+	public Material skybox_daytime;
 	MouseOrbit mo; // Scripts reference for MouseOrbit camera type
 	private Vector3 offset; // distance offset between the camera and the particle system for in-game menu
 	private AudioSource audiosrc;
@@ -47,7 +49,6 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		if (Input.GetButtonDown("Cancel") || triggerResume) {
 			isPaused = !isPaused;
-			UpdateProficiencyLevel ();
 
 			if (isPaused) {
 				Time.timeScale = 0.0F;
@@ -74,7 +75,20 @@ public class GameManager : MonoBehaviour {
 			for (int i = 0; i < numSpheres; i++) {
 				UpdateProficiencyLevel ();
 			}
+			uitxtProficiency.GetComponent<Text> ().text = "100%";
 		}
+
+		// Change the SKYBOX, just for testing, the final user should not change the skybox.
+		if (Input.GetKeyDown(KeyCode.N)) {
+			if (RenderSettings.skybox == skybox_daytime) {
+				RenderSettings.skybox = skybox_afternoon;
+				GameObject.Find ("Directional Light").GetComponent<Light>().intensity = 0.3f;
+			} else {
+				RenderSettings.skybox = skybox_daytime;
+				GameObject.Find ("Directional Light").GetComponent<Light> ().intensity = 1.0f;
+			}
+		}
+
 	}
 
 	/*
